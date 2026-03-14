@@ -6,13 +6,12 @@ Transformer-based arithmetic language model training stack with supervised fine-
 
 - `arithmetic_llm/`: model, tokenizer, data generation, training, evaluation, LoRA, and GRPO code.
 - `reward_ablation/`: H1/H2/H3 experiment entrypoints and log analysis tools.
-- `tests/`: focused regression tests for reward logic and trainer behavior.
-- `report/`: final report PDF and reward-curve figures.
+- `report/`: final report PDF, slide deck, and reward-curve figures.
 
 ## Setup
 
 ```bash
-uv sync --dev
+uv sync
 ```
 
 ## Core Commands
@@ -57,6 +56,7 @@ uv run python -m reward_ablation.analyze_reward_ablation \
 ## Report
 
 - [Final report PDF](./report/final_report.pdf)
+- [Slides](./report/final_project_slides.pptx)
 - [Accuracy curves](./report/reward_accuracy_curves.png)
 - [H2 reward components](./report/h2_reward_component_curves.png)
 - [H3 reward components](./report/h3_reward_component_curves.png)
