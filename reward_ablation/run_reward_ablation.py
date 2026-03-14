@@ -15,9 +15,9 @@ from .reward_designs import RewardDesign
 _EVIDENCE_DIR = Path(__file__).resolve().parent.parent / "report"
 _DEFAULT_REPORT_PDF = _EVIDENCE_DIR / "final_report.pdf"
 _DEFAULT_REPORT_IMAGES = [
-    _EVIDENCE_DIR / "final_report_page-1.png",
-    _EVIDENCE_DIR / "final_report_page-2.png",
-    _EVIDENCE_DIR / "final_report_page-3.png",
+    _EVIDENCE_DIR / "reward_accuracy_curves.png",
+    _EVIDENCE_DIR / "h2_reward_component_curves.png",
+    _EVIDENCE_DIR / "h3_reward_component_curves.png",
 ]
 
 
@@ -114,7 +114,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--report-images",
         nargs="*",
         default=[str(path) for path in _DEFAULT_REPORT_IMAGES],
-        help="Report screenshots to attach as W&B images",
+        help="Reward-curve figures to attach as W&B images",
     )
     return parser
 

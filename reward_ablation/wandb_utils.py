@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
 import os
 
@@ -40,13 +41,14 @@ def log_report_evidence(
     report_pdf_path: Optional[str],
     report_image_paths: Optional[Iterable[str]],
 ) -> None:
-    """Attach the report PDF and screenshots to the W&B run."""
+    """Attach the report PDF and reward-curve figures to the W&B run."""
     import wandb
 
     image_payload = {}
-    for idx, image_path in enumerate(report_image_paths or [], start=1):
+    for image_path in report_image_paths or []:
         if os.path.exists(image_path):
-            image_payload[f"evidence/report_page_{idx}"] = wandb.Image(image_path)
+            image_key = Path(image_path).stem.replace(" ", "_")
+            image_payload[f"evidence/{image_key}"] = wandb.Image(image_path)
     if image_payload:
         wandb_run.log(image_payload, step=0)
 
